@@ -9,7 +9,7 @@ fun main() {
         return (0 until input.size - 3).count { input.window(it) < input.window(it + 1) }
     }
 
-    val input = readIntInput("Day01")
+    val input = readIntInput("Data")
     println(part1(input))
     println(part2(input))
 }
