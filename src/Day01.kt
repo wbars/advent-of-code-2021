@@ -1,17 +1,15 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun part1(input: List<Int>): Int {
+        return (1 until input.size).count { input[it] > input[it - 1] }
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun List<Int>.window(base: Int) = this[base] + this[base + 1] + this[base + 2]
+
+    fun part2(input: List<Int>): Int {
+        return (0 until input.size - 3).count { input.window(it) < input.window(it + 1) }
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
+    val input = readIntInput("Day01")
     println(part1(input))
     println(part2(input))
 }
